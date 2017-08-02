@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="app/css/normalize.css">
+  <link rel="stylesheet" href="app/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="app/css/styleLogin.css">
+  <link rel="shortcut icon" href="app/img/photo-camera-titile-icon.png" type="image/png">
+  <title>WebCamJS</title>
+</head>
+<body>
+  <div class="recovery-email-overlay">
+    <div class="recovery-password-background"></div>
+    <div class="recovery-password">
+      <div class="top-block">
+        <div id="closeRecoveryPasswordWindow" class="logoutCloseIcon">
+          <img  src="app/img/icons/image-editor-icon/cancel.svg" alt="">
+        </div>
+      </div>
+      <div class="text-block">
+        <img src="app/img/icons/email.svg" alt="">
+        <div class="text-block-text">
+          <span data-language="en">Enter your email and we will send you instructions to reset password</span>
+          <span data-language="ru">Введите адрес электронной почты и мы вышлем вам инструкции по сбросу пароля</span>
+        </div>
+      </div>
+      <form class="" action="php/sendEmail.php" method="post" id="recoveryPasswordForm" autocomplete="off">
+          <input type="email" name="email" value="">
+          <label data-language="ru" for="forgotPassword">Отправить</label>
+          <label data-language="en" for="forgotPassword">Send</label>
+          <input type="submit" id="forgotPassword" class="button" value="Send">
+      </form>
+    </div>
+  </div>
+  <div class="header">
+      <div class="left-block">
+        <div class="change-language-area">
+          <h1 class="my-text">RU</h1>
+          <input id="change-lang-checkbox" type="checkbox" class="toggler" data-toggle="button-toggle">
+          <label for="change-lang-checkbox" class="button-toggle">
+              <div class="handle">
+                  <div class="bars"></div>
+              </div>
+          </label>
+        </div>
+        <img src="app/img/icons/russia.svg" class="language-flag" alt="">
+      </div>
+      <a href="/index.php">
+      <div class="center-block">
+        <span data-language="en">Back to main menu</span>
+        <span data-language="ru">Назад в главное меню</span>
+      </div>
+      </a>
+      <div class="right-block">
+
+          <div class="full-screen-block">
+              <img id="fullScreenIcon" src="app/img/icons/image-editor-icon/switch-to-full-screen-button.svg" alt="">
+          </div>
+      </div>
+  </div>
+  <div class="login-account-background">
+    <div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+    <label for="tab-1" class="tab">
+      <span data-language="en">Sign In</span>
+      <span data-language="ru">Войти</span>
+    </label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up">
+    <label for="tab-2" class="tab">
+      <span data-language="en">Sign Up</span>
+      <span data-language="ru">Зарегистрироваться</span>
+    </label>
+    <div class="login-form">
+
+      <form method="post" id="signInForm" autocomplete="off">
+      <div class="sign-in-htm">
+        <div class="group">
+          <label data-language="en" for="userLogin" class="label">Username</label>
+          <label data-language="ru" for="userLogin" class="label">Имя пользователя</label>
+          <input id="userLogin" name="login" type="text" class="input" required>
+        </div>
+        <div class="group">
+          <label data-language="en" for="passLogin" class="label">Password</label>
+          <label data-language="ru" for="passLogin" class="label">Пароль</label>
+          <input id="passLogin" name="password" type="password" class="input" data-type="password" required="">
+        </div>
+        <div class="error-message signIn">
+          <span data-language="ru">Ошибка! Неверное имя пользователя или пароль !</span>
+          <span data-language="en">Error! Invalid user name or password !</span>
+        </div>
+        <div class="group">
+          <input type="submit" class="button" for="signInForm" value="Sign In">
+        </div>
+        <div class="hr"></div>
+        <div class="foot-lnk">
+          <a data-language="en" class="forgotPassword">Forgot Password?</a>
+          <a data-language="ru" class="forgotPassword">Забыли пароль?</a>
+        </div>
+      </div>
+      </form>
+      <form method="post" id="signUpForm" autocomplete="off">
+      <div class="sign-up-htm">
+        <div class="group">
+          <div class="group-text">
+            <label data-language="en"  for="user" class="label">Username <span id="name"></span></label>
+            <label data-language="ru" for="user" class="label">Ваше имя <span id="name"></span></label>
+          </div>
+          <input id="user" type="text" name="login" class="input" required>
+        </div>
+        <div class="group">
+          <label data-language="en" for="pass" class="label">Password <span id="password"></span></label>
+          <label data-language="ru" for="pass" class="label">Пароль <span id="password"></span></label>
+          <input id="pass" type="password" name="password" class="input" data-type="password" required >
+        </div>
+        <div class="group">
+          <label data-language="en" for="pass" class="label">Repeat Password <span id="password2"></span></label>
+          <label data-language="ru" for="pass" class="label">Повторите пароль <span id="password2"></span></label>
+          <input id="pass2" type="password" class="input" data-type="password" required >
+        </div>
+        <div class="group">
+          <label data-language="en" for="pass" class="label">Email Address <span id="userEmail"></span></label>
+          <label data-language="ru" for="pass"  class="label">Ваш Email <span id="userEmail"></span></label>
+          <input id="email" type="email" name="email" class="input" required >
+        </div>
+        <div class="error-message-signup sign-in" style="color:#f07464"> 
+            <span data-language="ru">Ошибка! Данный логин или email уже заняты !</span> 
+            <span data-language="en">Error! Login or email already exists !</span> 
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="Sign Up">
+        </div>
+        <div class="hr"></div>
+
+      </div>
+  </form>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="footer"><span>&copy;
+ Н.Д. Певнев, 2017</span><a href="https://github.com/thystruby"><i class="fa fa-github" aria-hidden="true"></i>thystruby</a></div>
+<script src="app/js/vendor/jquery.min.js"></script>
+<script src="app/js/loginForm.js" type="text/javascript"></script>
+<script src="app/js/validator.js"></script>
+</body>
+</html>

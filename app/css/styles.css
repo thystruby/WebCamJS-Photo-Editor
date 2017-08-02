@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import 'https://fonts.googleapis.com/css?family=Oswald:300,400';
+@import 'https://fonts.googleapis.com/css?family=Comfortaa:400,700';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("tekstura-metall-seryy-fon.jpg");
+    font:normal 16px/1.5 sans-serif;
+    color: #333;
+}
+
+h3{
+    font: normal 32px/1.5 'Open Sans', sans-serif;
+    color: #2c3e50;
+    margin: 50px 0;
+    text-align: center;
+}
+
+
+.container{
+    position: relative;
+    max-width: 875px;
+    height: 678px;
+    /*background-image: url(bg.jpg);*/
+    border: 31px solid black;
+    border-bottom: 39px solid black;
+    margin: 10px auto;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+div.loadPhoto {
+    cursor: pointer;
+    position: absolute;
+    left: 210px;
+    top: 10px;
+    width: 64px;
+    height: 64px;
+    background-image: url(outbox.png);
+}
+
+div.useWebCam {
+    cursor: pointer;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 615px;
+    top: 10px;
+    background-image: url(photo-camera.png);
+}
+
+#upLoad {
+    display: none;
+}
+
+img#preview {
+    display: none;
+}
+
+.app{
+    width: 100%;
+    position: relative;
+}
+
+.app #start-camera{
+    display: none;
+    border-radius: 3px;
+    max-width: 400px;
+    color: #fff;
+    background-color: #448AFF;
+    text-decoration: none;
+    padding: 15px;
+    opacity: 0.8;
+    margin: 50px auto;
+    text-align: center;
+}
+
+
+
+
+
+.app video#camera-stream{
+    width: 814px;
+    transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+}
+
+.app img#snap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 814px;
+    height: 610px;
+    z-index: 10;
+}
+
+.app #error-message{
+    width: 100%;
+    background-color: #ccc;
+    color: #9b9b9b;
+    font-size: 28px;
+    padding: 200px 100px;
+    text-align: center;
+    display: none;
+}
+
+.controls{
+    position: absolute;
+    background: url("bottom.png");
+    top: 648px;
+    left: -30px;
+    width: 875px;
+    height: 89px;
+    z-index: 20;
+    padding: 30px;
+}
+
+
+
+.app .controls a:hover{
+    opacity: 1;
+}
+
+.controls a.disabled,
+#video3Sek.disabled,
+#video5Sek.disabled,
+#back1.disabled{
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+}
+
+.app canvas{
+    display: none;
+}
+
+div.filters {
+
+    position: absolute;
+    left: -88px;
+    top: 10px;
+    background: transparent;
+    margin-left: -3px;
+    width: 61px;
+    height: 46px;
+}
+
+div.filters-panel {
+    width: 0;
+    float: right;
+    margin-top: -5px;
+    height: 584px;
+    background: #363b3c;
+}
+
+div.filters-panel ul li{
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 13px;
+    border-bottom: 2px solid black;
+    padding: 30px;
+    color: white;
+    list-style-type: none;
+}
+
+div.filters-panel ul li:last-child {
+    border: 0;
+}
+
+div.filters-panel ul {
+    display: none;
+}
+
+
+#take-photo {
+    position: absolute;
+    left: 384px;
+    top: 13px;
+}
+
+#download-photo {
+    position: absolute;
+    left: 555px;
+    top: 19px;
+}
+
+#download-photo img{
+    width: 50px;
+    height: 50px;
+}
+
+#download-photo img:active,
+#delete-photo img:active,
+div#video3Sek img:active,
+div#video5Sek img:active,
+#take-photo img:active,
+#back:active,
+#back1:active{
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+#back {
+    position: absolute;
+    cursor: pointer;
+    left: 20px;
+    top: 30px;
+    background-image: url(left-arrow.png);
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 52px;
+}
+
+#back1 {
+    position: absolute;
+    cursor: pointer;
+    left: 20px;
+    top: 30px;
+    background-image: url(left-arrow.png);
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 52px;
+}
+
+#delete-photo {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+}
+
+#delete-photo img {
+    width: 50px;
+    height: 50px;
+}
+
+.stop-video {
+    position: absolute;
+    height: 33px;
+    width: 40px;
+    left: 798px;
+    top: -638px;
+}
+
+div.stop-video {
+    background-image: url(pause-two-lines.png);
+    background-repeat:no-repeat;
+    cursor: pointer;
+}
+
+div.stop-video.visible {
+    cursor: pointer;
+    background-image: url(play-arrow.png);
+    background-repeat:no-repeat;
+}
+
+div.stop-video.disables,
+div#video3Sek.hideUI,
+div#video5Sek.hideUI,
+div.stop-video.hideUI,
+#back.hideUI,
+#back1.hideUI{
+
+    display: none;
+}
+
+img.hideUI {
+    display: none;
+}
+
+
+div.loadPhoto.hide,
+div.useWebCam.hide{
+    display: none;
+}
+
+ div#video3Sek {
+     position: absolute;
+     width: 30px;
+     left: 337px;
+     top: 10px;
+     height: 30px;
+     cursor: pointer;
+ }
+ 
+
+ div#video5Sek {
+     position: absolute;
+     width: 30px;
+     left: 462px;
+     top: 10px;
+     height: 30px;
+     cursor: pointer;
+ }
+
+
+div#video5Sek p {
+    cursor: default;
+    font-size: 15px;
+    color: black;
+    position: absolute;
+    left: 40px;
+    top: -4px;
+    width: 40px;
+    font-weight: bold;
+    font-family: serif;
+}
+
+ div#video3Sek p {
+     cursor: default;
+     font-size: 15px;
+     color: black;
+     position: absolute;
+     left: -43px;
+     top: -4px;
+     font-weight: bold;
+     font-family: serif;
+ }
+
+li.filter_sepia.active,
+li.filter_black.active,
+li.filter_3.active,
+li.filter_4.active,
+li.filter_5.active,
+li.filter_6.active {
+    cursor: default;
+    pointer-events: none;
+}
+ 
+.app img#snap.visible.invert {
+    -webkit-filter: invert(100%);
+}
+
+
+
+.app img#snap.visible.sepia {
+     -webkit-filter: sepia(100%);
+ }
+
+
+div.useWebCam p {
+    font-family: 'Comfortaa' , sans-serif;
+    color: #000;
+    text-align: center;
+    width: 247px;
+    font-size: 42px;
+    margin-top: -180px;
+    margin-left: -79px;
+}
+
+div.loadPhoto p {
+    font-family: 'Comfortaa' , sans-serif;
+    color: #000;
+    text-align: center;
+    width: 247px;
+    font-size: 42px;
+    margin-top: -180px;
+    margin-left: -79px;
+}
+
+
+
