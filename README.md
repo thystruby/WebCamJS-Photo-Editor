@@ -1,0 +1,1 @@
+WebCamJS-Photo-Editor
